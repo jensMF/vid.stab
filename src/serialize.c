@@ -202,7 +202,7 @@ LocalMotion restoreLocalmotionText(FILE *f)
   if (fscanf(f, "(LM %hi %hi %hi %hi %hi %lf %lf", &lm.v.x, &lm.v.y, &lm.f.x, &lm.f.y, &lm.f.size,
              &lm.contrast, &lm.match) != 7)
   {
-    vs_log_error(modname, "Cannot parse localmotion!\n");
+    vs_log_error(modname, "Text: Cannot parse localmotion!\n");
     return null_localmotion();
   }
   while ((c = fgetc(f)) && c != ')' && c != EOF)
