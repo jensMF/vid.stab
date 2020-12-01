@@ -99,6 +99,7 @@ int readInt16(int16_t *i, FILE *f)
   }
   vs_log_error(modname, "2. result16: %hi\n", result);
 #endif
+  vs_log_error(modname, "3. result16: %hi\n", result);
   return result;
 }
 
@@ -113,6 +114,7 @@ int readInt32(int32_t *i, FILE *f)
   }
   vs_log_error(modname, "2. result32: %hi\n", result);
 #endif
+  vs_log_error(modname, "3. result32: %hi\n", result);
   return result;
 }
 
@@ -127,6 +129,7 @@ int readDouble(double *d, FILE *f)
   }
   vs_log_error(modname, "2. result: %hi\n", result);
 #endif
+  vs_log_error(modname, "3. result: %hi\n", result);
   return result;
 }
 
