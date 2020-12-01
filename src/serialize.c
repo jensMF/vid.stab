@@ -139,6 +139,7 @@ int writeInt16(const int16_t *i, FILE *f)
 #ifdef __IS_BIG_ENDIAN__
   val = __bswap_16(val);
 #endif
+  vs_log_error(modname, "val16: %hi\n", val);
   return fwrite((const void *)&val, sizeof(int16_t), 1, f);
 }
 
@@ -148,6 +149,7 @@ int writeInt32(const int32_t *i, FILE *f)
 #ifdef __IS_BIG_ENDIAN__
   val = __bswap_32(val);
 #endif
+  vs_log_error(modname, "val32: %hi\n", val);
   return fwrite((const void *)&val, sizeof(int32_t), 1, f);
 }
 
@@ -157,6 +159,7 @@ int writeDouble(const double *d, FILE *f)
 #ifdef __IS_BIG_ENDIAN__
   val = byteSwapDouble(val);
 #endif
+  vs_log_error(modname, "valDouble: %hi\n", val);
   return fwrite((const void *)&val, sizeof(double), 1, f);
 }
 
