@@ -93,7 +93,11 @@ int readInt16(int16_t *i, FILE *f)
   int result = fread(i, sizeof(int16_t), 1, f);
 #ifdef __IS_BIG_ENDIAN__
   if (result > 0)
+  {
+    vs_log_error(modname, "1. result16: %hi\n", result);
     *i = __bswap_16(*i);
+  }
+  vs_log_error(modname, "2. result16: %hi\n", result);
 #endif
   return result;
 }
@@ -103,7 +107,11 @@ int readInt32(int32_t *i, FILE *f)
   int result = fread(i, sizeof(int32_t), 1, f);
 #ifdef __IS_BIG_ENDIAN__
   if (result > 0)
+  {
+    vs_log_error(modname, "1. result32: %hi\n", result);
     *i = __bswap_32(*i);
+  }
+  vs_log_error(modname, "2. result32: %hi\n", result);
 #endif
   return result;
 }
@@ -113,7 +121,11 @@ int readDouble(double *d, FILE *f)
   int result = fread(d, sizeof(double), 1, f);
 #ifdef __IS_BIG_ENDIAN__
   if (result > 0)
+  {
+    vs_log_error(modname, "1. result: %hi\n", result);
     *d = byteSwapDouble(*d);
+  }
+  vs_log_error(modname, "2. result: %hi\n", result);
 #endif
   return result;
 }
@@ -202,7 +214,7 @@ LocalMotion restoreLocalmotionText(FILE *f)
   if (fscanf(f, "(LM %hi %hi %hi %hi %hi %lf %lf", &lm.v.x, &lm.v.y, &lm.f.x, &lm.f.y, &lm.f.size,
              &lm.contrast, &lm.match) != 7)
   {
-    vs_log_error(modname, "Text: Cannot parse localmotion!\n");
+    vs_log_error(modname, "Cannot parse localmotion!\n");
     return null_localmotion();
   }
   while ((c = fgetc(f)) && c != ')' && c != EOF)
