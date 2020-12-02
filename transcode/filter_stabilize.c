@@ -213,7 +213,7 @@ static int stabilize_configure(TCModuleInstance *self,
     if (&md->serializationMode == 1)
         sd->f = fopen(sd->result, "w");
     else
-        sd->f = fopen(sd->result, "w+b");
+        sd->f = fopen(sd->result, "wb");
     if (sd->f == NULL)
     {
         tc_log_error(MOD_NAME, "cannot open result file %s!\n", sd->result);
