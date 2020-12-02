@@ -192,8 +192,10 @@ static int transform_configure(TCModuleInstance *self,
                     getInterpolationTypeName(conf.interpolType));
         tc_log_info(MOD_NAME, "    sharpen   = %f", fd->sharpen);
     }
-
-    f = fopen(fd->input, "rb");
+    if (serializationMode == 1)
+        f = fopen(fd->input, "r");
+    else
+        f = fopen(fd->input, "rb");
     if (f == NULL)
     {
         tc_log_error(MOD_NAME, "cannot open input file %s!\n", fd->input);
