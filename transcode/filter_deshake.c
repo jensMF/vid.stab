@@ -279,7 +279,10 @@ static int deshake_configure(TCModuleInstance *self,
 
   sd->avg.initialized = 0;
   if (&md->serializationMode == 1)
+  {
+    tc_log_error(MOD_NAME, "ASCII MODE");
     sd->f = fopen(sd->result, "w");
+  }
   else
     sd->f = fopen(sd->result, "wb");
   if (sd->f == NULL)

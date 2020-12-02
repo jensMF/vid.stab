@@ -193,7 +193,10 @@ static int transform_configure(TCModuleInstance *self,
         tc_log_info(MOD_NAME, "    sharpen   = %f", fd->sharpen);
     }
     if (serializationMode == 1)
+    {
+        tc_log_error(MOD_NAME, "ASCII MODE");
         f = fopen(fd->input, "r");
+    }
     else
         f = fopen(fd->input, "rb");
     if (f == NULL)

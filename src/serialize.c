@@ -70,7 +70,7 @@ int readDouble(double *d, FILE *f)
   int arr_length = sizeof(double);
   uint8_t buff[arr_length];
   int result = fread(buff, sizeof(uint8_t), arr_length, f);
-  double *dd = (double *)memcpy(d, (double *)buff, sizeof(double));
+  memcpy(d, (double *)buff, sizeof(double));
   return result;
 }
 
