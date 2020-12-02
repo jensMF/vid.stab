@@ -216,7 +216,11 @@ static int stabilize_configure(TCModuleInstance *self,
         sd->f = fopen(sd->result, "w");
     }
     else
+    {
+        tc_log_error(MOD_NAME, "BINARY MODE");
         sd->f = fopen(sd->result, "wb");
+    }
+
     if (sd->f == NULL)
     {
         tc_log_error(MOD_NAME, "cannot open result file %s!\n", sd->result);

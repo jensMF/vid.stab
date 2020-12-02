@@ -198,7 +198,11 @@ static int transform_configure(TCModuleInstance *self,
         f = fopen(fd->input, "r");
     }
     else
+    {
+        tc_log_error(MOD_NAME, "BINARY MODE");
         f = fopen(fd->input, "rb");
+    }
+
     if (f == NULL)
     {
         tc_log_error(MOD_NAME, "cannot open input file %s!\n", fd->input);
