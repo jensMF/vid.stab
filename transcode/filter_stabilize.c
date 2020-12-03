@@ -213,11 +213,13 @@ static int stabilize_configure(TCModuleInstance *self,
     if (&md->serializationMode == 1)
     {
         tc_log_error(MOD_NAME, "ASCII MODE");
+        printf("ASCII MODE");
         sd->f = fopen(sd->result, "w");
     }
     else
     {
         tc_log_error(MOD_NAME, "BINARY MODE");
+        printf("BINARY MODE");
         sd->f = fopen(sd->result, "wb");
     }
 
